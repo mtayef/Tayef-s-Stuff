@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="dockerValidation.ChromeTest1"/>
+      <class name="dockerValidation.ChromeTest2"/>
+      <class name="dockerValidation.ChromeTest3"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
