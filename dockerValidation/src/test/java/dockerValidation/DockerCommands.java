@@ -9,10 +9,9 @@ import org.testng.Assert;
 
 public class DockerCommands {
 	
-	
+	public static Runtime runtime;
 	public static void startStopFile(String bat, String text) {
 		try {
-			Runtime runtime = Runtime.getRuntime();
 			boolean flag = false;
 			
 			runtime = Runtime.getRuntime();
@@ -60,6 +59,7 @@ public class DockerCommands {
 			Runtime runtime = Runtime.getRuntime();
 			runtime.exec("cmd /c start scale.bat");
 			Thread.sleep(5000);
+			System.out.println("Scaled up successfully!");
 		} catch(Exception e) {
 			System.err.println("ERROR: Caught exception!: This is scale file section -->"+e.getMessage());
 		}		
@@ -75,10 +75,20 @@ public class DockerCommands {
 	
 	public static void clsExit() {
 		try { 
-			Runtime runtime = Runtime.getRuntime();
+			runtime = Runtime.getRuntime();
 			runtime.exit(0);			
 		} catch(Exception e) {
 			System.err.println("ERROR: Caught exception!: This is close/exit file section --> "+e.getMessage());
 		}
-	}	
+	}
+	
+	public static void exit() {
+		try {
+			runtime = Runtime.getRuntime();
+			runtime.exec("taskkill /IM cmd.exe");
+		} catch (Exception e) {
+			System.err.println("ERROR: Caught exception!: "+e.getMessage());
+			
+		}
+	}
 }

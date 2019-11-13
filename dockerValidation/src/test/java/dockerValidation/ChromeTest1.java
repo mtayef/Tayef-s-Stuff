@@ -25,7 +25,7 @@ public class ChromeTest1 extends DockerCommands{
 	public static void chromeTest1() {
 		try {
 			URL u = new URL("http://localhost:4444/wd/hub");
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			RemoteWebDriver driver = new RemoteWebDriver(u, cap);
 			driver.get("https://www.google.com/");
 			System.out.println(driver.getTitle());
@@ -41,5 +41,6 @@ public class ChromeTest1 extends DockerCommands{
 		String text = "selenium-hub exited with";
 		
 		startStopFile(bat, text);
-	}
+		exit();
+	} 
 }
